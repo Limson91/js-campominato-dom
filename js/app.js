@@ -6,9 +6,13 @@ console.log(gridDOMElement);
 const btnDOMElement = document.getElementById('play-btn');
 console.log(btnDOMElement);
 
+const scoreDOMElement = document.getElementById('score');
+
 // al click su start generare una griglia 10x10
 btnDOMElement.addEventListener('click', function() {
     gridDOMElement.innerHTML = ''; //se click più volte sul btn start non genera altre griglie.
+
+    let score = 0;
 
     const bombs = getArrayRandomNumber(1, 100, 16);
     console.log(bombs);
@@ -58,6 +62,9 @@ btnDOMElement.addEventListener('click', function() {
             // aggiungere la classe bg-blue;
             console.log("Sei salvo.. per il momento")
             currentCell.classList.add('bg-blue');
+            score++
+            console.log('Punteggio:', score);
+            scoreDOMElement.innerHTML = score;
         }
        
         
